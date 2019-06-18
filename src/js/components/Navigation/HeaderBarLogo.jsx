@@ -5,12 +5,12 @@ import { Link } from 'react-router';
 import { cordovaDot, isCordova } from '../../utils/cordovaUtils';
 
 const HeaderBarLogo = ({ isBeta, light }) => (
-  <HeaderBarWrapper>
+  <span>
     <Link to={`${isCordova() ? '/ballot' : '/welcome'}`} className="page-logo page-logo-full-size" id="logoHeaderBar">
       <img className="header-logo-img" alt="We Vote logo" src={cordovaDot(`/img/global/svg-icons/we-vote-logo-horizontal-color${light ? '-200x66' : '-dark-141x46'}.svg`)} />
       {isBeta && <span className="beta-marker"><BetaMarkerInner light={light}>beta</BetaMarkerInner></span>}
     </Link>
-  </HeaderBarWrapper>
+  </span>
 );
 
 HeaderBarLogo.propTypes = {
@@ -27,8 +27,4 @@ const BetaMarkerInner = styled.span`
   text-transform: 
 `;
 
-const HeaderBarWrapper = styled.div`
-  @media print{
-  }
-`;
 export default HeaderBarLogo;
